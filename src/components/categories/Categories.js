@@ -28,13 +28,13 @@ const Categories = () => {
     // Ensure minPrice and maxPrice are parsed as numbers
     const min = parseInt(minPrice);
     const max = parseInt(maxPrice);
-  
+
     // Create a copy of selectedCategories to avoid mutation issues
     const categories = selectedCategory ? [selectedCategory] : [];
-  
+
     // Ensure sortOrder is a string or default to an empty string
     const order = sortOrder || "";
-  
+
     // Call handleFilterChange with the correct parameters
     handleFilterChange({
       categories,
@@ -42,11 +42,10 @@ const Categories = () => {
       sortOrder: order,
     });
   };
-  
 
   return (
-    <div className="flex items-center justify-between p-4 bg-gray-100 shadow-md h-4">
-      <div className="flex items-center">
+    <div className="flex flex-col sm:flex-row items-center justify-between p-4 bg-gray-100 shadow-md space-y-4 sm:space-y-0 sm:space-x-4">
+      <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
         <div>
           <label className="font-bold mr-2">Category:</label>
           <select
@@ -60,25 +59,27 @@ const Categories = () => {
             <option value="Furniture">Furniture</option>
           </select>
         </div>
-        <div className="flex items-center">
+        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
           <label className="font-bold mr-2">Price Range:</label>
-          <input
-            type="number"
-            value={minPrice}
-            onChange={handleMinPriceChange}
-            className="p-2 border rounded w-24 mr-2"
-            min="500"
-            max="5000"
-          />
-          <span className="mx-2">-</span>
-          <input
-            type="number"
-            value={maxPrice}
-            onChange={handleMaxPriceChange}
-            className="p-2 border rounded w-24"
-            min="500"
-            max="5000"
-          />
+          <div className="flex items-center">
+            <input
+              type="number"
+              value={minPrice}
+              onChange={handleMinPriceChange}
+              className="p-2 border rounded w-24"
+              min="500"
+              max="5000"
+            />
+            <span className="mx-2">-</span>
+            <input
+              type="number"
+              value={maxPrice}
+              onChange={handleMaxPriceChange}
+              className="p-2 border rounded w-24"
+              min="500"
+              max="5000"
+            />
+          </div>
         </div>
         <div>
           <label className="font-bold mr-2">Sort by:</label>

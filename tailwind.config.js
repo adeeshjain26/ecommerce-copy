@@ -7,6 +7,10 @@ module.exports = {
     extend: {
       colors: {
         'yell': '#FF9800',
+        'gunmetal': '#212A31',
+        'gunmetal-100':'#2E2944',
+        'midnightgreen':'#124E66',
+        'timberwolf':'#D3D9D4'
       },
     },
   },

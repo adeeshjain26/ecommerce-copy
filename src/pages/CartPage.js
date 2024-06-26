@@ -46,7 +46,7 @@ const CartPage = () => {
                           <span className="font-semibold">{item.product.name}</span>
                         </div>
                       </td>
-                      <td className="py-4">${parseFloat(item.product.price).toFixed(2)}</td>
+                      <td className="py-4">₹{parseFloat(item.product.price).toFixed(2)}</td>
                       <td className="py-4">
                         <div className="flex items-center">
                           <button
@@ -64,7 +64,7 @@ const CartPage = () => {
                           </button>
                         </div>
                       </td>
-                      <td className="py-4">${(parseFloat(item.product.price) * item.quantity).toFixed(2)}</td>
+                      <td className="py-4">₹{(parseFloat(item.product.price) * item.quantity).toFixed(2)}</td>
                       <td className="py-4">
                         <button
                           className="text-red-500 hover:text-red-700"
@@ -84,20 +84,20 @@ const CartPage = () => {
               <h2 className="text-lg font-semibold mb-4">Summary</h2>
               <div className="flex justify-between mb-2">
                 <span>Subtotal</span>
-                <span>${getTotal().toFixed(2)}</span>
+                <span>₹{getTotal().toFixed(2)}</span>
               </div>
               <div className="flex justify-between mb-2">
-                <span>Taxes</span>
-                <span>$1.99</span>
+                <span>GST</span>
+                <span>₹{(getTotal()*0.18).toFixed(2)}</span>
               </div>
               <div className="flex justify-between mb-2">
                 <span>Shipping</span>
-                <span>$0.00</span>
+                <span>₹0.00</span>
               </div>
               <hr className="my-2" />
               <div className="flex justify-between mb-2">
                 <span className="font-semibold">Total</span>
-                <span className="font-semibold">${(getTotal() + 1.99).toFixed(2)}</span>
+                <span className="font-semibold">₹{(getTotal() + getTotal()*0.05).toFixed(2)}</span>
               </div>
               <button className="bg-blue-500 text-white py-2 px-4 rounded-lg mt-4 w-full">Checkout</button>
             </div>
